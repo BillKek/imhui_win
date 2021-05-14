@@ -10,7 +10,9 @@ The scope of this project is extremely small. We are not trying to compete with 
 
 ## Quick Start
 
-```console
-$ make -B
-$ ./main
+```far manager
+> made.bat
+> run_satatic.bat
+?????
+enjoy !
 ```
