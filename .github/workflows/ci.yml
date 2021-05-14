@@ -36,9 +36,9 @@ jobs:
         env:
           CC: gcc
           CXX: g++
-      - name: Hmm
-        run: dir C:\_ /S
-        shell: cmd
+#      - name: Hmm
+#        run: dir C:\_ /S
+#        shell: cmd
       - name: Upload build artifacts 1
         uses: actions/upload-artifact@v1
         with:
