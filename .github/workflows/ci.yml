@@ -31,10 +31,7 @@ jobs:
           Copy-Item -Path "." -Destination "C:\_" -Recurse
       - name: Build
         run: |
-          cd "C:\_"
-          .\made.bat
-          echo ===
-          type err.txt
+          C:\_\made.bat
         shell: cmd
         env:
           CC: gcc
