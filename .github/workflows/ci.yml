@@ -25,6 +25,11 @@ jobs:
         run: |
           msys2 -c 'pacman --noconfirm -Suuy'
           msys2 -c 'pacman --noconfirm -Suu'
+      - name: Fix Brotli Bug with static libs
+        run: |
+          cd /C/_
+          MINGW_ARCH=${{ matrix.msystem }} ./fix_brotli_bug.sh
+        shell: msys2 {0}
 # like https://github.com/msys2/MINGW-packages/blob/master/.github/workflows/main.yml#L35
       - name: Move Checkout
         run: |
