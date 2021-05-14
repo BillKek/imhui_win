@@ -1,3 +1,3 @@
 cd /C/_
-make.exe -B
+mingw32-make.exe -B
 
