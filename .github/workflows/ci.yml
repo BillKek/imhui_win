@@ -19,7 +19,7 @@ jobs:
       - uses: msys2/setup-msys2@v2
         with:
           msystem: ${{ matrix.msystem }}
-          install: mingw-w64-${{ matrix.arch }}-toolchain mingw-w64-${{ matrix.arch }}-pkg-config mingw-w64-${{ matrix.arch }}-glfw mingw-w64-${{ matrix.arch }}-ftgl mingw-w64-${{ matrix.arch }}-glew
+          install: mingw-w64-${{ matrix.arch }}-toolchain mingw-w64-${{ matrix.arch }}-pkg-config mingw-w64-${{ matrix.arch }}-glfw mingw-w64-${{ matrix.arch }}-ftgl mingw-w64-${{ matrix.arch }}-glew mingw-w64-${{ matrix.arch }}-brotli
           update: true
       - name: Update and Install mingw and packages
         run: |
