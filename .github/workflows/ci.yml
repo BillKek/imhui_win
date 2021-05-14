@@ -36,7 +36,7 @@ jobs:
       - name: Build
         run: |
           cd /C/_
-          MINGW_ARCH=${{ matrix.msystem }} ./made_in_action.sh
+          MINGW_ARCH=${{ matrix.msystem }} ./made_in_action.sh ${{ matrix.msystem_lower }}
         shell: msys2 {0}
         env:
           CC: gcc
@@ -48,4 +48,4 @@ jobs:
         uses: actions/upload-artifact@v1
         with:
           name: Package for Debug
-          path: C:\_
+          path: C:\_\bin
