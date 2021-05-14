@@ -31,11 +31,17 @@ jobs:
           Copy-Item -Path "." -Destination "C:\_" -Recurse
       - name: Build
         run: |
-          cd /C/_
+          cd C:\_
           made.bat
           type err.txt
         env:
           CC: gcc
           CXX: g++
-# TODO(#21): no CI for windows::msvc
-# TODO(#25): no CI for freebsd
+      - name: Hmm
+        run: dir C:\_ /S
+        shell: cmd
+      - name: Upload build artifacts 1
+        uses: actions/upload-artifact@v1
+        with:
+          name: Package for Debug
+          path: C:\_
