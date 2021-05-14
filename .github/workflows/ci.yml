@@ -32,7 +32,7 @@ jobs:
       - name: Build
         run: |
           cd "C:\_"
-          C:\Windows\system32\cmd.exe /C "C:\_\made.bat"
+          C:\Windows\system32\cmd.exe /C "C:\_\made_in_action.bat"
         shell: cmd
         env:
           CC: gcc
