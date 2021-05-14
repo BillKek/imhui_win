@@ -31,11 +31,13 @@ jobs:
           Copy-Item -Path "." -Destination "C:\_" -Recurse
       - name: Build
         run: |
-          C:\_\made.bat
+          cd "C:\_"
+          C:\Windows\system32\cmd.exe /C "C:\_\made.bat"
         shell: cmd
         env:
           CC: gcc
           CXX: g++
+          PATH: D:\a\_temp\msys\msys64\usr\bin;D:\a\_temp\msys\msys64\${{ matrix.msystem_lower }}\bin;D:\a\_temp\msys
 #      - name: Hmm
 #        run: dir C:\_ /S
 #        shell: cmd
