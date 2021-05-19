@@ -202,8 +202,13 @@ ImHui imhui = {
 
 void cursor_position_callback(GLFWwindow* window, double xpos, double ypos)
 {
-    (void) window;
-    imhui_mouse_move(&imhui, xpos, ypos);
+    int width, height;
+    glfwGetWindowSize(window, &width, &height);
+
+    const double offset_x = width / 2 - DISPLAY_WIDTH / 2;
+    const double offset_y = height / 2 - DISPLAY_HEIGHT / 2;
+
+    imhui_mouse_move(&imhui, xpos - offset_x, ypos - offset_y);
 }
 
 void mouse_button_callback(GLFWwindow* window, int button, int action, int mods)
@@ -290,12 +295,20 @@ int main()
     imhui_gl_begin(&imhui_gl, &imhui);
 
     while (!glfwWindowShouldClose(window)) {
-        imhui_begin(&imhui);
+        const float PADDING = 10.0f;
+        imhui_begin(&imhui, vec2(0.0f, 0.0f), PADDING);
         {
-            for (size_t i = 1; i <= 5; ++i) {
-                if (imhui_button(&imhui, "Button", i)) {
-                    printf("%zu button was clicked!\n", i);
+            const size_t ROWS = 10;
+            const size_t COLS = 5;
+            for (size_t i = 0; i < ROWS; ++i) {
+                imhui_layout_begin(&imhui, IMHUI_HORZ_LAYOUT, PADDING);
+                for (size_t j = 0; j < COLS; ++j) {
+                    ImHui_ID id = i * COLS + j + 1;
+                    if (imhui_button(&imhui, "Button", id)) {
+                        printf("Clicked button %d\n", id);
+                    }
                 }
+                imhui_layout_end(&imhui);
             }
         }
         imhui_end(&imhui);
